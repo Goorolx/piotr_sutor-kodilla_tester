@@ -4,9 +4,9 @@ public class Person{
 
     String firstName;
     int age;
-    String job;
+    Job job;
 
-    public Person (String firstName,int age,String job) {
+    public Person (String firstName,int age,Job job) {
         this.firstName = firstName;
         this.age = age;
         this.job = job;
@@ -17,7 +17,7 @@ public class Person{
     public String getFirstName() {
         return firstName;
     }
-    public String getJob() {
+    public Job getJob() {
         return job;
     }
 

@@ -11,11 +11,12 @@ public class JobApp {
         Job waiter = new Waiter();
         //processor.process(waiter);
 
-        Person person1 = new Person("Hans",31,"Waiter");
-        String pJob = person1.getJob();
-        if (pJob.equals("Cook")){
+        Person person1 = new Person("Hans",32,cook);
+        Job pJob = person1.getJob();
+        System.out.println("This person is "+person1.getFirstName());
+        if (pJob.equals(cook)){
             processor.process(cook);}
-        else if (pJob.equals("Waiter")){
+        else if (pJob.equals(waiter)){
             processor.process(waiter);}
         else {
             System.out.println(person1.getFirstName()+" - Age: " + person1.getAge()+" - I have no idea what this person is doing");
