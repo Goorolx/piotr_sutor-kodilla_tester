@@ -1,61 +1,44 @@
 import java.util.Random;
 
-public class RandomNumbers {
-    //int sum = 0;            //tworze zmienne ktore beda wystepowac w klasie
+public class RandomNumbersMk2 {
+    int sum = 0;            //tworze zmienne ktore beda wystepowac w klasie
     int maxNum = 0;
     int minNum = 30;
-    int result = 0;
 
+    RandomNumbersMk2 (int minNum,int maxNum, int sum) {
+        this.maxNum = maxNum;
+        this.minNum = minNum;
+        this.sum = sum;
+    }
     public int makeRandomResult() {   //metoda do tworzenia losowj liczby
         Random random = new Random();   //tworzymy obiekt random, bedzie mial jeden atrybut int max
         int result = random.nextInt(31);  //losujemy liczby w przedziale 0-30, 31 nie wchodzi
-        this.result = result;
         return result;
     }
-    public int getResult(){return result;}
-
-    public int randomSumUpTo5000() {
-        int max = 5000;   //przypisuje wartosc max = 5000
-        int sum = 0;
-        while (sum <= max)  {  //pętla się powtarza jesli suma wylosowanych mniejsza jak max
+    public RandomNumbersMk2 randomSumUpTo5000() {
+        while (sum <= 5000) {  //pętla się powtarza jesli suma wylosowanych mniejsza jak max
             int randomResult = makeRandomResult();
             sum = sum + randomResult;
-        setMinNum(randomResult);
-        setMaxNum(randomResult); } //dodajemy nowo wylosowana liczbe
-        return sum;
-    }
-    public int setMinNum(int result) {
 
-        if (result < minNum) {      //warunek by wyciągnac najmniejsza wylosowana liczbe
-            minNum = result;
+            if (randomResult < minNum) {      //warunek by wyciągnac najmniejsza wylosowana liczbe
+                minNum = randomResult;
+            }
+            if (randomResult > maxNum) {  //max wartosc
+                maxNum = randomResult;
+            }}
+
+            RandomNumbersMk2 minMaxSum = new RandomNumbersMk2(minNum, maxNum, sum);
+            return minMaxSum;
         }
-        return minNum;
-    }
-    public int setMaxNum(int result) {
-        if (result > maxNum) {  //max wartosc
-            maxNum = result;
+        public void show (){
+            System.out.println(maxNum);
+            System.out.println(minNum);
+            System.out.println(sum);
         }
-        return maxNum;
-    }
-    public int getMinNum() {
-        return minNum;
-    }
-    public int getMaxNum() {
-        return maxNum;
-    }
 
     public static void main(String[] args) {
-        RandomNumbers numbers = new RandomNumbers();  //tworze obiekt numbers
-
-        int suma = numbers.randomSumUpTo5000();
-            System.out.println(suma) ;
-        int resultSum = numbers.randomSumUpTo5000();            //
-        System.out.println(resultSum);
-        int resultNumber = numbers.getResult();            //
-        System.out.println(resultNumber);
-        int minNumber = numbers.getMinNum();            //
-        System.out.println(minNumber);
-        int maxNumber = numbers.getMaxNum();            //
-        System.out.println(maxNumber);
+        RandomNumbersMk2 numbers = new RandomNumbersMk2(0,0,0);  //tworze obiekt numbers
+        numbers.randomSumUpTo5000();
+        numbers.show();
     }
 }

@@ -23,11 +23,11 @@ public class CarListApplication {
 
         for (Car car: cars)
             CarUtils.describeCar(car);
+
         Car star = new Star(9,2,3);
         cars.add(star);
 
-        cars.remove(new Star(9,2,3));
-        cars.remove(new Ford(2,2,2));
+        cars.remove(new Ford(3,3,3));
         cars.remove(0);
         cars.remove(star);
 

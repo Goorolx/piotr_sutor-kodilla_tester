@@ -4,15 +4,12 @@ public class User {
     int averageAge;
 
 
-    public User(String userName, int userAge) {
+    public User(String userName, int userAge) {  //konstruktor
         this.userName = userName;
         this.userAge = userAge;
     }
 
-    public String getUserName() {
-        return this.userName;
-    }
-
+    public String getUserName() { return this.userName; }
     public int getUserAge() {
         return userAge;
     }

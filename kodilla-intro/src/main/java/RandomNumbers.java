@@ -47,8 +47,6 @@ public class RandomNumbers {
     public static void main(String[] args) {
         RandomNumbers numbers = new RandomNumbers();  //tworze obiekt numbers
 
-        int suma = numbers.randomSumUpTo5000();
-            System.out.println(suma) ;
         int resultSum = numbers.randomSumUpTo5000();            //
         System.out.println(resultSum);
         int resultNumber = numbers.getResult();            //
