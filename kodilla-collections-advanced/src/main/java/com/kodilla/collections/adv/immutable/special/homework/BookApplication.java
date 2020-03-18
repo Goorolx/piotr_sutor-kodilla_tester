@@ -8,19 +8,20 @@ import java.util.List;
 public class BookApplication {
 
     public static void main(String[] args) {
+        BookManager bookManager = new BookManager("library");
 
-        Book book1 = BookManager.createBook("Ksiazka","Kucharska");
-        Book book2 = BookManager.createBook("War&Peace", "Tolstoy");
-        Book book3 = BookManager.createBook("Witcher","Sapkowski");
+        Book book1 = bookManager.createBook("Ksiazka","Kucharska");
+        Book book2 = bookManager.createBook("War&Peace", "Tolstoy");
+        Book book3 = bookManager.createBook("Witcher","Sapkowski");
 
-        Book book4 = BookManager.createBook("Witcher","Sapkowski");
+        Book book4 = bookManager.createBook("Witcher","Sapkowski");
 
-        BookManager.addBook(book1);
-        BookManager.addBook(book2);
-        BookManager.addBook(book3);
-        BookManager.addBook(book4);
+        bookManager.addBook(book1);
+        bookManager.addBook(book2);
+        bookManager.addBook(book3);
+        bookManager.addBook(book4);
 
-        System.out.println("collection size is "+BookManager.books.size());
+        System.out.println("collection size is "+bookManager.books.size());
 
         System.out.println(book1.hashCode());
         System.out.println(book2.hashCode());
@@ -29,10 +30,18 @@ public class BookApplication {
         System.out.println(book2.equals(book3));
         System.out.println(book1.equals(book3));
 
-        System.out.println(BookManager.books.get(0).hashCode());
 
-        System.out.println(book1.equals(BookManager.books.get(0)));
-        System.out.println(book2.equals(BookManager.books.get(1)));
-        System.out.println(book3.equals(BookManager.books.get(2)));
+        List<Book> bookList = new ArrayList ();
+        for (Book book : bookManager.getBooks()
+        ) {bookList.add(book); }
+
+        System.out.println(bookList);
+        System.out.println(book1.equals(bookList.get(0)));
+        System.out.println(book1.equals(bookList.get(1)));
+        System.out.println(book1.equals(bookList.get(2)));
+
+        System.out.println(book2.equals(bookList.get(0)));
+        System.out.println(book2.equals(bookList.get(1)));
+        System.out.println(book2.equals(bookList.get(2)));
     }
 }
