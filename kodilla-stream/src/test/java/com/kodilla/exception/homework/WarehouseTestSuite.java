@@ -9,15 +9,15 @@ public class WarehouseTestSuite {
     Warehouse warehouse = new Warehouse("magazyn");
     Order o1 = warehouse.addOrder(new Order("as1234"));
     Order o2 = warehouse.addOrder(new Order("as3456"));
+
     @Test
-    public void shouldReturnTrueWhenOrderExist() {
-        //given
+    public void shouldReturnTrueWhenExists() throws OrderDoesntExistException {
+        //gives
         Order o = o1;
         //when
-        Order a = warehouse.orders.get(0);
+        Order a = warehouse.getOrder("as1234");
         //then
-        assertEquals(a,o);
-    }
+        assertEquals(a,o);}
 
     @Test(expected = OrderDoesntExistException.class)
     public void shouldReturnFalseWhenOrderDontExists() throws OrderDoesntExistException {
@@ -29,14 +29,15 @@ public class WarehouseTestSuite {
         assertEquals(a,o);
     }
 
-    @Test
-    public void shouldReturnTrueWhenExists() throws OrderDoesntExistException {
+    @Test(expected = OrderDoesntExistException.class)
+    public void shouldReturnFalseWhenOrderEmpty() throws OrderDoesntExistException {
         //gives
         Order o = o1;
         //when
-        Order a = warehouse.getOrder("as1234");
+        Order a = warehouse.getOrder("");
         //then
         assertEquals(a,o);
     }
 
 }
+
