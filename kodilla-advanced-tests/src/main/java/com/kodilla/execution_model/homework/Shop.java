@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class Shop {
     Set<Order> orders = new HashSet<>();
 
-    public void addOrder(Order order) throws WrongOrderException {
+    public void addOrder(Order order){
         orders.add(order);
     }
 

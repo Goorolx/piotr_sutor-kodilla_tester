@@ -25,7 +25,7 @@ class ShopTestSuite {
     }
 
     @Test
-    public void shouldReturn7Orders() throws WrongOrderException {
+    public void shouldReturn7Orders() {
         //when
         shop.addOrder(new Order(12, LocalDate.parse("2020-01-01"), "zbychu"));
         //then
@@ -41,8 +41,13 @@ class ShopTestSuite {
     }
 
     @Test
-    public void shouldNotReturnException() throws WrongOrderException {
-        assertDoesNotThrow(() -> shop.addOrder(new Order(0, LocalDate.parse("2020-01-01"), "")));
+    public void shouldAddZeroOrder() {
+        // when
+        Order order = new Order(0.0, LocalDate.of(2020,01,01), "");
+        shop.addOrder(order);
+        //then
+        Optional o = shop.orders.stream().filter(u -> u.equals(order)).findFirst();
+        assertEquals(order,o.get());
     }
 
     @Test
@@ -89,7 +94,7 @@ class ShopTestSuite {
     }
 
     @BeforeEach
-    public void InitializeOrders() throws WrongOrderException {
+    public void InitializeOrders() {
         shop.addOrder(o1);
         shop.addOrder(o2);
         shop.addOrder(o3);
