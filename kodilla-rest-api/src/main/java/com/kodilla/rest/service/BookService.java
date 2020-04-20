@@ -10,7 +10,7 @@ import java.util.List;
 public class BookService {
     private List<BookDto> books = new ArrayList<>();
 
-    public List<BookDto> getbooks() {
+    public List<BookDto> getBooks() {
         return books;
     }
 

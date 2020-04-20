@@ -6,7 +6,6 @@ public class BookDto {
     private String title;
     private String author;
 
-
     public BookDto(String title, String author){
         this.title = title;
         this.author = author;
@@ -28,7 +27,6 @@ public class BookDto {
         return Objects.equals(title, bookDto.title) &&
                 Objects.equals(author, bookDto.author);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(title, author);
