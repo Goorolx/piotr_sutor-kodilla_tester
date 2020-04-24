@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
 
 public class BookControllerTestSuite {
 
@@ -28,27 +29,22 @@ public class BookControllerTestSuite {
         //then
         assertThat(result).hasSize(2);
     }
+
     @Test
-    public void shouldAddThreeBooks(){
+    public void shouldAddThreeBooks() {
         //given
         BookService bookServiceMock = Mockito.mock(BookService.class);
         BookController bookController = new BookController(bookServiceMock);
-        List<BookDto> books = new ArrayList<>();
 
-        BookDto book1 = new BookDto("title1","Author1");
-        BookDto book2 = new BookDto("title2","Author2");
-        BookDto book3 = new BookDto("title3","Author2");
-
-        Mockito.when(bookServiceMock.addBook(book1)).then(books.add(book1));
-        Mockito.when(bookServiceMock.getBooks()).thenReturn(books);
         //when
-        List<BookDto> booksList = new ArrayList<>();
-                bookController.addBook(book1);
-                bookController.addBook(book2);
-                bookController.addBook(book3);
-           //then
-        assertThat(booksList).hasSize(3);
+        BookDto book1 = new BookDto("title1", "Author1");
+        BookDto book2 = new BookDto("title2", "Author2");
+        BookDto book3 = new BookDto("title3", "Author2");
+        bookController.addBook(book1);
+        bookController.addBook(book2);
+        bookController.addBook(book3);
+        //then
+        Mockito.verify(bookServiceMock, Mockito.times(3)).addBook(any(BookDto.class));
 
     }
-
 }
