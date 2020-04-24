@@ -1,0 +1,14 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns2:getLibraryResponse xmlns:ns2="http://kodilla.com/courses/soap">
+            <ns2:book>
+                <ns2:signature>002</ns2:signature>
+                <ns2:title>Random title</ns2:title>
+                <ns2:author>Random Author</ns2:author>
+                <ns2:published>1984</ns2:published>
+                <ns2:genre>SCI-FI</ns2:genre>
+            </ns2:book>
+        </ns2:getLibraryResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
