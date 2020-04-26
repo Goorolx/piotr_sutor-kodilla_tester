@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="bc4876be-a4d2-4bd1-b36d-5f64bfec485a" activeEnvironment="Default" name="Kodilla-Library-soap"
+                    resourceRoot="" soapui-version="5.5.0" xmlns:con="http://eviware.com/soapui/config">
+    <con:settings/>
+    <con:interface xsi:type="con:WsdlInterface" id="c2bc7d09-1f20-4ab3-ae18-2ed93ba116cc" wsaVersion="NONE"
+                   name="CoursesPortSoap11" type="wsdl" bindingName="{http://kodilla.com/courses/soap}CoursesPortSoap11"
+                   soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/courses.wsdl"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:settings/>
+        <con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/courses.wsdl">
+            <con:part>
+                <con:url>http://localhost:8080/ws/courses.wsdl</con:url>
+                <con:content><![CDATA[<wsdl:definitions targetNamespace="http://kodilla.com/courses/soap" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://kodilla.com/courses/soap" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://kodilla.com/courses/soap">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://kodilla.com/courses/soap" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getLibraryRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="signature" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getLibraryResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="book" type="tns:book"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="book">
+        <xs:sequence>
+          <xs:element name="signature" type="xs:string"/>
+          <xs:element name="title" type="xs:string"/>
+          <xs:element name="author" type="xs:string"/>
+          <xs:element name="published" type="xs:int"/>
+          <xs:element name="genre" type="tns:genre"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="genre">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="SCI-FI"/>
+          <xs:enumeration value="Fantasy"/>
+          <xs:enumeration value="Tech"/>
+          <xs:enumeration value="Crime"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getLibraryRequest">
+    <wsdl:part element="tns:getLibraryRequest" name="getLibraryRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLibraryResponse">
+    <wsdl:part element="tns:getLibraryResponse" name="getLibraryResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CoursesPort">
+    <wsdl:operation name="getLibrary">
+      <wsdl:input message="tns:getLibraryRequest" name="getLibraryRequest"></wsdl:input>
+      <wsdl:output message="tns:getLibraryResponse" name="getLibraryResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CoursesPortSoap11" type="tns:CoursesPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getLibrary">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getLibraryRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getLibraryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CoursesPortService">
+    <wsdl:port binding="tns:CoursesPortSoap11" name="CoursesPortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content>
+                <con:type>http://schemas.xmlsoap.org/wsdl/</con:type>
+            </con:part>
+        </con:definitionCache>
+        <con:endpoints>
+            <con:endpoint>http://localhost:8080/ws</con:endpoint>
+        </con:endpoints>
+        <con:operation id="2706e08e-fc5e-48f9-884d-987f971c1991" isOneWay="false" action="" name="getLibrary"
+                       bindingOperationName="getLibrary" type="Request-Response" outputName="getLibraryResponse"
+                       inputName="getLibraryRequest" receivesAttachments="false" sendsAttachments="false"
+                       anonymous="optional">
+            <con:settings/>
+            <con:call id="90467e11-0e7f-4d59-8693-bfd33e7a95db" name="Request 1">
+                <con:settings/>
+                <con:encoding>UTF-8</con:encoding>
+                <con:endpoint>http://localhost:8080/ws</con:endpoint>
+                <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/courses/soap">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getLibraryRequest>\r
+         <soap:signature>?</soap:signature>\r
+      </soap:getLibraryRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+                <con:wsaConfig mustUnderstand="NONE" version="200508"
+                               action="http://kodilla.com/courses/soap/CoursesPort/getLibraryRequest"/>
+            </con:call>
+        </con:operation>
+    </con:interface>
+    <con:testSuite id="fd8b7100-6d99-47df-b6b6-7aad64c9b0c1" name="Library TestSuite">
+        <con:settings/>
+        <con:runType>SEQUENTIAL</con:runType>
+        <con:testCase id="82a7a155-9ceb-470e-b867-ba7be083438f" failOnError="true" failTestCaseOnErrors="true"
+                      keepSession="false" maxResults="0" name="NotContains TestCase" searchProperties="true">
+            <con:settings/>
+            <con:testStep type="request" id="97efd5ba-4bd4-45d5-91c9-f183224e4a9a" name="getLibrary">
+                <con:settings/>
+                <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:interface>CoursesPortSoap11</con:interface>
+                    <con:operation>getLibrary</con:operation>
+                    <con:request name="getLibrary" id="76460aac-d704-488c-b4c2-6abed09438c7">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:encoding>UTF-8</con:encoding>
+                        <con:endpoint>http://localhost:8080/ws</con:endpoint>
+                        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/courses/soap">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getLibraryRequest>\r
+         <soap:signature>003</soap:signature>\r
+      </soap:getLibraryRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+                        <con:assertion type="Simple NotContains" id="22e6c749-f182-41d9-a169-17cbbf2c182c"
+                                       name="Not Contains">
+                            <con:configuration>
+                                <token>author</token>
+                                <ignoreCase>false</ignoreCase>
+                                <useRegEx>false</useRegEx>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:assertion type="Simple NotContains"/>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:wsaConfig action="http://kodilla.com/courses/soap/CoursesPort/getLibraryRequest"
+                                       mustUnderstand="NONE" version="200508"/>
+                        <con:wsrmConfig version="1.2"/>
+                    </con:request>
+                </con:config>
+            </con:testStep>
+            <con:properties/>
+        </con:testCase>
+        <con:testCase id="0cca80b6-5056-4198-a8cd-f9dd68e1dc49" failOnError="true" failTestCaseOnErrors="true"
+                      keepSession="false" maxResults="0" name="Get 002 Author TestCase" searchProperties="true">
+            <con:settings/>
+            <con:testStep type="request" id="d69b349c-71d9-4698-8d9d-51236636c8e6" name="getLibrary">
+                <con:settings/>
+                <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:interface>CoursesPortSoap11</con:interface>
+                    <con:operation>getLibrary</con:operation>
+                    <con:request name="getLibrary" id="76460aac-d704-488c-b4c2-6abed09438c7">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:encoding>UTF-8</con:encoding>
+                        <con:endpoint>http://localhost:8080/ws</con:endpoint>
+                        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/courses/soap">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getLibraryRequest>\r
+         <soap:signature>001</soap:signature>\r
+      </soap:getLibraryRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+                        <con:assertion type="Simple Contains"/>
+                        <con:assertion type="Simple Contains" id="6305287f-7a79-439e-90af-170eeca86694"
+                                       name="Contains2">
+                            <con:configuration>
+                                <token>title>Lord of the rings&lt;</token>
+                                <ignoreCase>false</ignoreCase>
+                                <useRegEx>false</useRegEx>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:assertion type="Simple NotContains" id="9c690be6-46cb-479a-9032-8ff424a23bf0"
+                                       name="Not Contains">
+                            <con:configuration>
+                                <token>author>Random Author&lt;</token>
+                                <ignoreCase>false</ignoreCase>
+                                <useRegEx>false</useRegEx>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:wsaConfig action="http://kodilla.com/courses/soap/CoursesPort/getLibraryRequest"
+                                       mustUnderstand="NONE" version="200508"/>
+                        <con:wsrmConfig version="1.2"/>
+                    </con:request>
+                </con:config>
+            </con:testStep>
+            <con:properties/>
+        </con:testCase>
+        <con:testCase id="7c792735-ca9e-4d89-aa82-9e0b96a4bfd7" failOnError="true" failTestCaseOnErrors="true"
+                      keepSession="false" maxResults="0" name="Get 001 AuthorTestCase" searchProperties="true">
+            <con:settings/>
+            <con:testStep type="request" id="5701b63a-537f-43d3-972b-ee17d89aa4e3" name="getLibrary">
+                <con:settings/>
+                <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:interface>CoursesPortSoap11</con:interface>
+                    <con:operation>getLibrary</con:operation>
+                    <con:request name="getLibrary" id="76460aac-d704-488c-b4c2-6abed09438c7">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:encoding>UTF-8</con:encoding>
+                        <con:endpoint>http://localhost:8080/ws</con:endpoint>
+                        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/courses/soap">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getLibraryRequest>\r
+         <soap:signature>002</soap:signature>\r
+      </soap:getLibraryRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+                        <con:assertion type="Simple Contains" id="6305287f-7a79-439e-90af-170eeca86694" name="Contains">
+                            <con:configuration>
+                                <token>author>Random Author&lt;</token>
+                                <ignoreCase>false</ignoreCase>
+                                <useRegEx>false</useRegEx>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:wsaConfig action="http://kodilla.com/courses/soap/CoursesPort/getLibraryRequest"
+                                       mustUnderstand="NONE" version="200508"/>
+                        <con:wsrmConfig version="1.2"/>
+                    </con:request>
+                </con:config>
+            </con:testStep>
+            <con:properties/>
+        </con:testCase>
+        <con:testCase id="140f1b16-8598-4211-aa24-aacabcd2b5a9" failOnError="true" failTestCaseOnErrors="true"
+                      keepSession="false" maxResults="0" name="Get 001 Title TestCase" searchProperties="true">
+            <con:settings/>
+            <con:testStep type="request" id="97a6d132-0407-44cb-bc32-bb21510b8bd3" name="getLibrary">
+                <con:settings/>
+                <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:interface>CoursesPortSoap11</con:interface>
+                    <con:operation>getLibrary</con:operation>
+                    <con:request name="getLibrary" id="76460aac-d704-488c-b4c2-6abed09438c7">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:encoding>UTF-8</con:encoding>
+                        <con:endpoint>http://localhost:8080/ws</con:endpoint>
+                        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/courses/soap">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getLibraryRequest>\r
+         <soap:signature>002</soap:signature>\r
+      </soap:getLibraryRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+                        <con:assertion type="Simple Contains" id="6305287f-7a79-439e-90af-170eeca86694" name="Contains">
+                            <con:configuration>
+                                <token>author>Random Author&lt;</token>
+                                <ignoreCase>false</ignoreCase>
+                                <useRegEx>false</useRegEx>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:wsaConfig action="http://kodilla.com/courses/soap/CoursesPort/getLibraryRequest"
+                                       mustUnderstand="NONE" version="200508"/>
+                        <con:wsrmConfig version="1.2"/>
+                    </con:request>
+                </con:config>
+            </con:testStep>
+            <con:properties/>
+        </con:testCase>
+        <con:properties/>
+    </con:testSuite>
+    <con:properties/>
+    <con:wssContainer/>
+    <con:oAuth2ProfileContainer/>
+    <con:oAuth1ProfileContainer/>
+    <con:sensitiveInformation/>
+</con:soapui-project>
