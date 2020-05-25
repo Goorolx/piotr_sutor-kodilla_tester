@@ -47,7 +47,7 @@ public class InvoiceRepositoryTestSuite {
         invoiceRepository.save(invoice);
         int id = invoice.getId();
         System.out.println(id);
-        List iz = invoice.getItems();
+        List<Item> iz = invoice.getItems();
         System.out.println(iz.get(1).toString());
         //then
         Assert.assertNotEquals(0, id);
