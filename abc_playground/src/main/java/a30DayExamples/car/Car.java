@@ -16,11 +16,13 @@ public class Car {
 
     int numberOfPeopleInCar = 1;
     int maxNumOfPeopleInTheCar = 3;
+
     public Car(int maxSpeed, double weight, boolean isTheCarOn) {
         this.maxSpeed = minSpeed;
         this.weight = weight;
         this.isTheCarOn = isTheCarOn;
     }
+
 
     public void printVariables() {
         System.out.println(maxSpeed);
@@ -33,23 +35,21 @@ public class Car {
     }
 
     public void upgradeMaxSpeed() {
-        setMaxSpeed(getMaxSpeed()+10);
+        setMaxSpeed(getMaxSpeed() + 10);
     }
 
     public void getIn() {
-       if(numberOfPeopleInCar<maxNumOfPeopleInTheCar){
-           numberOfPeopleInCar++;
-           System.out.println("someone got in");
-       }
-       else System.out.println("too many people");
+        if (numberOfPeopleInCar < maxNumOfPeopleInTheCar) {
+            numberOfPeopleInCar++;
+            System.out.println("someone got in");
+        } else System.out.println("too many people");
     }
 
     public void getOut() {
         if (numberOfPeopleInCar != 0) {
             numberOfPeopleInCar--;
-            System.out.println(numberOfPeopleInCar+ "- num of people");
-        }
-        else System.out.println(numberOfPeopleInCar+ "- empty");
+            System.out.println(numberOfPeopleInCar + "- num of people");
+        } else System.out.println(numberOfPeopleInCar + "- empty");
     }
 
     public double howManyMilesTillOutOfGas() {
@@ -60,10 +60,11 @@ public class Car {
         return maxFuel * mpg;
     }
 
-    public void turnTheCarOn(){
-        if (isTheCarOn==false){
-            isTheCarOn=true;
-        };
+    public void turnTheCarOn() {
+        if (isTheCarOn == false) {
+            isTheCarOn = true;
+        }
+
     }
 
 
@@ -86,11 +87,11 @@ public class Car {
         birthdayPresent.getIn();
         birthdayPresent.getIn();
         birthdayPresent.getIn();
-        System.out.println("Miles left: "+birthdayPresent.howManyMilesTillOutOfGas());
-        System.out.println("Max Miles: "+birthdayPresent.maxMilesPerFillUp());
+        System.out.println("Miles left: " + birthdayPresent.howManyMilesTillOutOfGas());
+        System.out.println("Max Miles: " + birthdayPresent.maxMilesPerFillUp());
         birthdayPresent.printVariables();
 
-        Car tommyCar = new Car(12,2,false);
+        Car tommyCar = new Car(12, 2, false);
         tommyCar.upgradeMaxSpeed();
         tommyCar.getMaxSpeed();
 
