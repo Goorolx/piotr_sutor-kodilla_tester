@@ -5,27 +5,31 @@ import java.util.Scanner;
 public class FizzBuzz {
 
     public static void main(String[] args) {
-        String key = "a";
-        String F = "Fizz";
-        String B = "Buzz";
-        System.out.println("Please type number to close press x");
-        Scanner sc = new Scanner(System.in);
+        String f = "Fizz";
+        String b = "Buzz";
+        String n = "Nope, try again";
 
-        while (!key.equalsIgnoreCase("x")) {
+        System.out.println(" ");
+        System.out.println("***   Hi, Welcome to my FizzBuzz   ***");
+        System.out.println(" ");
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please type Your number ---> to stop type \"not a number\"");
+
+        while (sc.hasNextInt()) {
             int number = sc.nextInt();
 
             if (number % 3 == 0 && number % 5 == 0)
-                System.out.println(F + B);
+                System.out.println(f + b);
             else if (number % 3 == 0)
-                System.out.println(F);
+                System.out.println(f);
             else if (number % 5 == 0)
-                System.out.println(B);
+                System.out.println(b);
             else
-                System.out.println("Nope, try again");
-
-            System.out.println("Press any key to continue, or close by pressing x");
-            key = sc.nextLine();
+                System.out.println(n);
         }
+        sc.close();
         System.out.println("Bye!");
     }
 }
+
